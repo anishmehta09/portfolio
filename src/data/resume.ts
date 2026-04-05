@@ -139,6 +139,21 @@ export const resume = {
     },
   ],
 
+  certifications: [
+    {
+      name: "Graph Developer - Professional",
+      issuer: "Apollo GraphQL",
+      issued: "Oct 2022",
+      url: "https://www.apollographql.com/tutorials/certifications/1151c727-ad10-4b7e-8c36-739bfc063a7e",
+    },
+    {
+      name: "Graph Developer - Associate",
+      issuer: "Apollo GraphQL",
+      issued: "Mar 2022",
+      url: "https://www.apollographql.com/tutorials/certifications/128f0560-afd6-4bf7-9301-f97c008a701b",
+    },
+  ],
+
   projects: [
     {
       title: "Portfolio",
@@ -162,4 +177,3 @@ export const resume = {
     linkedin: "https://www.linkedin.com/in/anish-mehta-17ba1a87/",
   },
 };
-

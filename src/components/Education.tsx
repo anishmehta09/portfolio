@@ -8,31 +8,66 @@ export default function Education() {
         Education
       </h2>
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-6">
         {resume.education.map((edu, index) => (
-          <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-8">
-            {/* Left column — period */}
-            <div className="md:w-48 shrink-0">
-              <p className="text-sm font-mono text-zinc-400 dark:text-zinc-500 mt-1">
-                {edu.period}
-              </p>
+          <div
+            key={index}
+            className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-6 flex flex-col gap-4"
+          >
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+              <div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                  {edu.degree}
+                </h3>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+                  {edu.institution} · {edu.location}
+                </p>
+              </div>
+              <Chip label={edu.period} />
             </div>
 
-            {/* Right column — content */}
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                {edu.degree}
-              </h3>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-                {edu.institution} · {edu.location}
-              </p>
-              {edu.courses && (
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {edu.courses.split(", ").map((skill) => (
-                    <Chip key={skill} label={skill} />
-                  ))}
-                </div>
-              )}
+            {edu.courses && (
+              <div className="flex flex-wrap gap-2">
+                {edu.courses.split(", ").map((course) => (
+                  <Chip key={course} label={course} />
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Certifications */}
+      <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-12 mb-6">
+        Certifications
+      </h3>
+
+      <div className="flex flex-col gap-6">
+        {resume.certifications.map((cert, index) => (
+          <div
+            key={index}
+            className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-6 flex flex-col gap-2"
+          >
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+              <div>
+                <h4 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                  {cert.name}
+                </h4>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+                  {cert.issuer}
+                </p>
+                {cert.url && (
+                  <a
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 underline underline-offset-2 transition-colors mt-1 inline-block"
+                  >
+                    Show credential ↗
+                  </a>
+                )}
+              </div>
+              <Chip label={cert.issued} />
             </div>
           </div>
         ))}
