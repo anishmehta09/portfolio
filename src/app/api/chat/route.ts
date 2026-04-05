@@ -1,30 +1,16 @@
 import Groq from "groq-sdk";
 import { GoogleGenAI } from "@google/genai";
-import { resume, chatContext } from "@/data/resume";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const gemini = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-const SYSTEM_PROMPT = `You are an AI assistant on Anish Mehta's personal portfolio website.
-Your job is to answer questions about Anish on his behalf — like a smart, friendly recruiter who knows him well.
-
-Keep answers concise and conversational. Don't list everything you know — answer what was asked.
-If you don't know something, say so honestly.
-
---- CONTEXT ---
-${JSON.stringify(chatContext, null, 2)}
-
---- RESUME SUMMARY ---
-Name: ${resume.name}
-Title: ${resume.title}
-Location: ${resume.location}
-Summary: ${resume.summary}
-`;
+const SYSTEM_PROMPT =
+  process.env.SYSTEM_PROMPT ?? "You are a helpful assistant.";
 
 type Message = { role: string; content: string };
 
 export async function POST(req: Request) {
-  const { messages, provider = "groq" } = await req.json();
+  const { messages, provider = "gemini" } = await req.json();
 
   if (provider === "gemini") {
     const history = messages.slice(0, -1).map((m: Message) => ({

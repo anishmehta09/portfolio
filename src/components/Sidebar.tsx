@@ -107,9 +107,10 @@ export default function Sidebar() {
         {/* Theme toggle */}
         <div className="flex flex-col gap-1">
           <p className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 px-1">Theme</p>
-          <div suppressHydrationWarning className="flex rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 text-xs">
+          <div className="flex rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 text-xs">
             {(["system", "dark", "light"] as const).map((t) => (
               <button
+                suppressHydrationWarning
                 key={t}
                 onClick={() => setTheme(t)}
                 className={`flex-1 py-1.5 capitalize transition-colors cursor-pointer ${
