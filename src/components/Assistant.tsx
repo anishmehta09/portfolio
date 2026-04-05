@@ -81,7 +81,7 @@ export default function Assistant() {
   return (
     <section
       id="assistant"
-      className="min-h-screen flex flex-col justify-center px-8 md:px-16 py-12"
+      className="min-h-screen flex flex-col px-8 md:px-16 pt-20 md:pt-12 pb-12 md:justify-center"
     >
       {/* Profile header */}
       <div className="flex items-center gap-5 mb-8">

@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# anishmehta.dev — AI-First Portfolio
 
-## Getting Started
+Personal portfolio website with an AI assistant powered by Google Gemini. Built to explore the React/Next.js ecosystem while demonstrating AI integration in a real product.
 
-First, run the development server:
+**Live:** [anishmehta.dev](https://anishmehta.dev)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## What it does
+
+The landing page is a conversational AI assistant that answers questions about my experience, skills, and background. Instead of a static bio, visitors can ask anything — and get responses grounded in my actual resume and context.
+
+The rest of the portfolio (Experience, Skills, Education, Projects, Contact) is accessible via the sidebar.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| AI | Google Gemini 2.0 Flash (default), Groq / Llama 3.3 70B (fallback) |
+| Deployment | Vercel |
+
+---
+
+## Key Features
+
+- **AI assistant as hero** — Gemini-powered chat replaces the traditional static intro
+- **Streaming responses** — tokens stream word by word via the Web Streams API
+- **Multi-provider support** — swap between Gemini and Groq via a `provider` field in the request
+- **Context-grounded** — system prompt is stored as an environment variable, not in source code
+- **Dark / Light / Auto theme** — segmented control powered by `next-themes`
+- **Fully responsive** — mobile drawer sidebar, full-width chat on small screens
+
+---
+
+## Architecture
+
+```
+src/
+├── app/
+│   ├── page.tsx              # Renders all sections
+│   ├── layout.tsx            # Root layout + theme provider
+│   └── api/chat/route.ts     # Streaming chat API (Gemini / Groq)
+├── components/
+│   ├── Assistant.tsx         # AI chat UI — profile header, messages, chips
+│   ├── Sidebar.tsx           # Nav, theme toggle, mobile hamburger
+│   ├── Experience.tsx        # Work history cards
+│   └── ...                   # Skills, Education, Projects, Contact
+└── data/
+    └── resume.ts             # Single source of truth for all UI content
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The chat API route reads `SYSTEM_PROMPT` from environment variables — personal context never lives in the codebase.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Running locally
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Create `.env.local`:
+```
+GROQ_API_KEY=...
+GEMINI_API_KEY=...
+SYSTEM_PROMPT=...
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## What I learned
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project was built as a deliberate learning exercise — transitioning from 10 years of Angular/NestJS to the React ecosystem. Every line was written to understand, not just ship. Key concepts explored:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js App Router, file-based routing, and server vs client components
+- Streaming HTTP responses with the Web Streams API
+- React state patterns for real-time streaming UI
+- Tailwind CSS v4 syntax and dark mode via CSS class variants
+- SSR hydration and how to handle client/server mismatches
