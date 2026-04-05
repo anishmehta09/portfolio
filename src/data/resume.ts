@@ -4,7 +4,7 @@ export const resume = {
   location: "Durham, NC",
   email: "anishmehta09@gmail.com",
   summary:
-    "Senior full stack engineer with 10+ years of experience in financial services, specializing in complex planning applications. Currently expanding into React, Next.js, and AI engineering.",
+    "Specializing in Angular, NestJS, React, and Next.js with a decade of experience building complex financial platforms. Apollo GraphQL certified. Currently applying AI engineering to equity research and financial planning.",
 
   nav: [
     { label: "Assistant", href: "#assistant" },
