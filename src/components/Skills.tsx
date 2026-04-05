@@ -3,7 +3,7 @@ import Chip from "@/components/presentation/Chip";
 
 export default function Skills() {
   return (
-    <section id="skills" className="min-h-screen px-8 md:px-16 py-20">
+    <section id="skills" className="min-h-screen px-8 md:px-16 py-12">
       {/* Section heading */}
       <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-12">
         Skills

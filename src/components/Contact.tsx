@@ -2,7 +2,7 @@ import { resume } from "@/data/resume";
 
 export default function Contact() {
   return (
-    <section id="contact" className="min-h-screen px-8 md:px-16 py-20">
+    <section id="contact" className="min-h-screen px-8 md:px-16 py-12">
       <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
         Contact
       </h2>

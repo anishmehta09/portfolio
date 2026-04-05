@@ -7,7 +7,7 @@ export const resume = {
     "Senior full stack engineer with 10+ years of experience in financial services, specializing in complex planning applications. Currently expanding into React, Next.js, and AI engineering.",
 
   nav: [
-    { label: "About", href: "#about" },
+    { label: "Assistant", href: "#assistant" },
     { label: "Experience", href: "#experience" },
     { label: "Skills", href: "#skills" },
     { label: "Education", href: "#education" },
@@ -60,6 +60,7 @@ export const resume = {
     },
     {
       company: "TechGroup America Inc.",
+      client: "Fidelity Investments",
       role: "Principal Systems Analyst",
       location: "Boston, USA",
       period: "March 2021 — March 2022",
@@ -74,6 +75,7 @@ export const resume = {
     },
     {
       company: "TechGroup America Inc.",
+      client: "Fidelity Investments",
       role: "Principal Systems Analyst",
       location: "Boston, USA",
       period: "January 2018 — March 2021",
@@ -88,6 +90,7 @@ export const resume = {
     },
     {
       company: "TechGroup America Inc.",
+      client: "Fidelity Investments",
       role: "Systems Analyst",
       location: "Smithfield, USA",
       period: "March 2017 — January 2018",
@@ -102,6 +105,7 @@ export const resume = {
     },
     {
       company: "Incept Data Solutions",
+      client: "Fidelity Investments",
       role: "Systems Analyst",
       location: "Smithfield, USA",
       period: "September 2015 — March 2017",
@@ -161,9 +165,9 @@ export const resume = {
 
 export const chatContext = {
   summary: `Anish Mehta is a Principal Full Stack Engineer at Fidelity Investments in Durham, NC 
-  with 10+ years of experience in financial services. He is self-taught in modern web development 
-  and has led teams of 8 developers while providing oversight to 30+ engineers. He is currently 
-  learning React, Next.js, and Tailwind CSS through personal projects.`,
+  with 10+ years of experience in financial services. He is self-taught in modern web development
+  and has led teams of 15 developers while providing oversight to 30+ engineers. His skills include
+  React, Next.js, and Tailwind CSS, Angular, Node.js, Express, NestJS and GraphQL.`,
 
   personality: `Anish is a lifelong learner who transitioned from business systems analysis to 
   full stack engineering through self-teaching. He bridges business strategy and technical 
@@ -176,39 +180,20 @@ export const chatContext = {
   He is particularly interested in reinforcement learning and case studies in ML. His goal is to 
   return to financial services as an AI architect building ethical and efficient ML models.`,
 
-  currentFocus: `Anish is currently building two personal projects to learn the modern React 
-  ecosystem — a personal portfolio with an AI chatbot (using Next.js, Tailwind, and the Claude API) 
-  and a stock tracker/watchlist app. These projects are his way of applying new technologies 
-  hands-on while expanding beyond his Angular and NestJS background.`,
+  currentFocus: `Anish has built several personal projects — a personal portfolio with an AI chatbot 
+  and a stock tracker/watchlist app. He is currently focused on building a chat-based AI application 
+  specializing in equity research, combining his financial services expertise with AI engineering.`,
 
-  financialExpertise: `Anish has deep domain knowledge in financial services including estate 
-  planning, private wealth management, retirement planning, and savings optimization. He has 
-  built platforms serving approximately 3 million monthly users at Fidelity Investments.`,
+  financialExpertise: `Anish has 10+ years of deep domain expertise in financial services, spending
+  his entire career building software for Fidelity Investments — first as a contractor through
+  TechGroup America and Incept Data Solutions (2015–2022), then as a direct employee (2022–present).
+  His domain expertise spans financial planning, retirement planning (401k, IRA, HSA savings
+  optimization), estate planning for high and medium-net-worth clients, private wealth management,
+  and investment advisory workflows. He has built platforms serving approximately 3 million monthly
+  users at Fidelity. His MBA from Suffolk University with coursework in Investment Banking, Fixed
+  Income Securities, Venture Capital, and Real Estate further deepens his financial foundation.`,
 
   openToWork: true,
   openToWorkDetails: `Anish is open to AI engineering and full stack roles, particularly in 
   financial services or companies working on AI-powered products. He is based in Durham, NC.`,
-
-  faqs: [
-    {
-      q: "What is Anish's tech stack?",
-      a: "Primarily Angular, NestJS, GraphQL, TypeScript, and REST on the job. Currently learning React, Next.js, and Tailwind CSS through personal projects.",
-    },
-    {
-      q: "Is Anish open to work?",
-      a: "Yes, Anish is open to AI engineering and full stack roles, particularly in financial services or AI-focused companies.",
-    },
-    {
-      q: "What is Anish's background in AI?",
-      a: "Anish recently applied to the MSAI program at UT Austin. He has worked on recommendation engines and savings optimization tools, and is now actively learning AI/ML to transition into AI architecture.",
-    },
-    {
-      q: "How many years of experience does Anish have?",
-      a: "10+ years in financial services, spanning business systems analysis, full stack engineering, and technical leadership.",
-    },
-    {
-      q: "Where does Anish work?",
-      a: "Fidelity Investments in Durham, NC as a Principal Full Stack Engineer since March 2022.",
-    },
-  ],
 };
