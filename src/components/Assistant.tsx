@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 import { resume } from "@/data/resume";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -109,7 +110,7 @@ export default function Assistant() {
       {/* Message list */}
       <div
         ref={messagesRef}
-        className="flex flex-col gap-4 mb-6 max-w-2xl max-h-[60vh] overflow-y-auto"
+        className="flex flex-col gap-4 mb-6 max-w-4xl max-h-[60vh] overflow-y-auto"
       >
         {messages.map((msg, i) => (
           <div
@@ -117,13 +118,32 @@ export default function Assistant() {
             className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
-              className={`max-w-[85%] px-4 py-3 rounded-xl text-sm leading-relaxed whitespace-pre-wrap ${
+              className={`max-w-[85%] px-5 py-4 rounded-xl text-base leading-relaxed ${
                 msg.role === "user"
                   ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900"
                   : "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
               }`}
             >
-              {msg.content || (loading && i === messages.length - 1 ? "▍" : "")}
+              {msg.content ? (
+                <ReactMarkdown
+                  components={{
+                    p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+                    ul: ({ children }) => <ul className="list-disc pl-4 mb-1">{children}</ul>,
+                    li: ({ children }) => <li className="mb-0.5">{children}</li>,
+                  }}
+                >
+                  {msg.content}
+                </ReactMarkdown>
+              ) : (
+                loading && i === messages.length - 1 ? (
+                  <span className="flex gap-1 items-center h-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-bounce [animation-delay:0ms]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-bounce [animation-delay:150ms]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-bounce [animation-delay:300ms]" />
+                  </span>
+                ) : ""
+              )}
             </div>
           </div>
         ))}
@@ -131,7 +151,7 @@ export default function Assistant() {
 
       {/* Chips */}
       {showChips && (
-        <div className="flex flex-wrap gap-2 mb-6 max-w-2xl">
+        <div className="flex flex-wrap gap-2 mb-6 max-w-4xl">
           {CHIPS.map((chip) => (
             <button
               key={chip}
@@ -145,7 +165,7 @@ export default function Assistant() {
       )}
 
       {/* Input */}
-      <div className="flex gap-2 max-w-2xl">
+      <div className="flex gap-2 max-w-4xl">
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}

@@ -163,37 +163,3 @@ export const resume = {
   },
 };
 
-export const chatContext = {
-  summary: `Anish Mehta is a Principal Full Stack Engineer at Fidelity Investments in Durham, NC 
-  with 10+ years of experience in financial services. He is self-taught in modern web development
-  and has led teams of 15 developers while providing oversight to 30+ engineers. His skills include
-  React, Next.js, and Tailwind CSS, Angular, Node.js, Express, NestJS and GraphQL.`,
-
-  personality: `Anish is a lifelong learner who transitioned from business systems analysis to 
-  full stack engineering through self-teaching. He bridges business strategy and technical 
-  execution, and brings strong communication and leadership skills alongside his technical depth.`,
-
-  aiJourney: `Anish recently applied to the Master of Science in Artificial Intelligence program 
-  at UT Austin. His motivation stems from working on rule-based recommendation engines and savings 
-  optimization tools at Fidelity, where he recognized the limitations of traditional systems and 
-  the potential of machine learning to create truly predictive, personalized financial experiences. 
-  He is particularly interested in reinforcement learning and case studies in ML. His goal is to 
-  return to financial services as an AI architect building ethical and efficient ML models.`,
-
-  currentFocus: `Anish has built several personal projects — a personal portfolio with an AI chatbot 
-  and a stock tracker/watchlist app. He is currently focused on building a chat-based AI application 
-  specializing in equity research, combining his financial services expertise with AI engineering.`,
-
-  financialExpertise: `Anish has 10+ years of deep domain expertise in financial services, spending
-  his entire career building software for Fidelity Investments — first as a contractor through
-  TechGroup America and Incept Data Solutions (2015–2022), then as a direct employee (2022–present).
-  His domain expertise spans financial planning, retirement planning (401k, IRA, HSA savings
-  optimization), estate planning for high and medium-net-worth clients, private wealth management,
-  and investment advisory workflows. He has built platforms serving approximately 3 million monthly
-  users at Fidelity. His MBA from Suffolk University with coursework in Investment Banking, Fixed
-  Income Securities, Venture Capital, and Real Estate further deepens his financial foundation.`,
-
-  openToWork: true,
-  openToWorkDetails: `Anish is open to AI engineering and full stack roles, particularly in 
-  financial services or companies working on AI-powered products. He is based in Durham, NC.`,
-};
