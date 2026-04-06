@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { resume } from "@/data/resume";
 import { useTheme } from "next-themes";
@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 export default function Sidebar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
 
   return (
     <>
@@ -104,17 +105,28 @@ export default function Sidebar() {
           ))}
         </nav>
 
+        {/* Resume download */}
+        <a
+          href="/resume.pdf"
+          download="Anish_Mehta_Resume.pdf"
+          className="flex items-center gap-2 px-3 py-2 mb-3 rounded-lg text-sm font-medium text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Download Resume
+        </a>
+
         {/* Theme toggle */}
         <div className="flex flex-col gap-1">
           <p className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 px-1">Theme</p>
           <div className="flex rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 text-xs">
             {(["system", "dark", "light"] as const).map((t) => (
               <button
-                suppressHydrationWarning
                 key={t}
                 onClick={() => setTheme(t)}
                 className={`flex-1 py-1.5 capitalize transition-colors cursor-pointer ${
-                  theme === t || (!theme && t === "system")
+                  mounted && theme === t
                     ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium"
                     : "text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
                 }`}
